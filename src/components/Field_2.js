@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useSound from 'use-sound';
 import sound from './glass.mp3';
-
+import broken from './broken.png';
 function Field_2 (props) {
 
 //##############################################################################
@@ -46,7 +46,8 @@ function clickHandler () {
               className={variable_classname()}
               type="checkbox"
               name="checkbox"
-              value=""></input>
+              value="">
+      </input>
      </label>
     </div>
    </div>

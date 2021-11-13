@@ -2,6 +2,7 @@ import './index.css'
 import { useState } from 'react';
 import Field_2 from './components/Field_2';
 import BoopButton from './components/Sound2';
+import Blocks_Menu from './components/Blocks_Menu';
 function App() {
 
 //##############################################################################
@@ -23,9 +24,15 @@ console.log(bombs);
 const [clickedArray, setClickedArray] = useState([]);
 
 //##############################################################################
+//Set Blocks
+//##############################################################################
+const [blocks, setBlocks] = useState(100);
+function handleBlocks(event){
+  setBlocks(event.target.value)
+}
+//##############################################################################
 //Create Field Array
 //##############################################################################
-let blocks =  "100";
 let field_array = [];
 for (let step = 0; step < blocks; step++) {
   field_array.push(<Field_2
@@ -42,6 +49,8 @@ return (
 
   <div style={{textAlign:'center', color:'white'}} id="all_JSX_________________________________________________________">
     <h1 style={{fontSize: 100}} >Crasher Game</h1>
+
+<Blocks_Menu setBlocks={setBlocks} blocks={blocks}/>
 
       <div className="row justify-content-center" style={{marginLeft:"50px", marginRight:"50px"}}>
        {field_array}
