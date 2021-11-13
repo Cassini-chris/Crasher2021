@@ -1,13 +1,207 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    padding-top: 56px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  };
+
+.bg-dark {background-color: #29527b}
+
+table {width: 315px}
+
+table, td, th {
+  border: 1px solid black;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+
+.container{text-align: center;}
+
+
+
+
+/*SMALL----------------------------------------------------------------------*/
+  @media (min-width: 400px) {
+    .col-sm {
+      width:90px; padding: 0;
+      flex: 0 0 0%}
+
+
+    .checkbox-container {
+      height: 90px;
+      width: 90px;
+      margin: 5px;
+      text-align: center;
+    }
+
+/*big----------------------------------------------------------------------*/
+    /* #############################################################################
+    Normal checkbox
+    ############################################################################# */
+    .checkboxUnchecked[type=checkbox] {
+      -webkit-appearance: none;
+      background-color: rgba(40, 40, 40, 0.8);
+      border: 1px solid #cacece;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      border-radius: 3px;
+      display: inline-block;
+      position: relative;
+    }
+
+    /* #############################################################################
+    setClickedArray checkbox
+    ############################################################################# */
+    .checkboxClicked[type=checkbox] {
+      -webkit-appearance: none;
+      background-color: rgba(242, 245, 66, 0.6);
+      border: 1px solid #cacece;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+            margin:15px;
+      border-radius: 3px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .checkboxClicked[type=checkbox]:checked {
+      background-color: rgba(242, 245, 66, 0.6);
+      border: 1px solid #adb8c0;
+      margin:15px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+      color: #99a1a7;
+
+}
+
+
+}
+  /*BIG----------------------------------------------------------------------*/
+  @media (min-width: 1200px) {
+    .col-sm {
+      width:45px; padding: 0;
+      flex: 0 0 0%}
+
+
+    .checkbox-container {
+      height: 45px;
+      width: 45px;
+      text-align: center;
+    }
+  /* #############################################################################
+  Normal checkbox
+  ############################################################################# */
+  .checkboxUnchecked[type=checkbox] {
+    -webkit-appearance: none;
+    background-color: rgba(40, 40, 40, 0.8);
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+  }
+
+
+
+
+
+  /* #############################################################################
+  Clicked checkbox
+  ############################################################################# */
+  /* .checkboxUnchecked[type=checkbox]:checked {
+    background-color: rgba(242, 245, 66, 0.6);
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+    color: #99a1a7;
+  } */
+
+  /* #############################################################################
+  Disabled checkbox
+  ############################################################################# */
+  .checkboxDisabled[type=checkbox] {
+    -webkit-appearance: none;
+    background-color: black;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+  }
+
+  /* #############################################################################
+  Won checkbox
+  ############################################################################# */
+  .checkboxWon[type=checkbox] {
+    -webkit-appearance: none;
+    background-color: green;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+  }
+
+  /* #############################################################################
+  BOMB checkbox
+  ############################################################################# */
+  .checkboxBomb[type=checkbox] {
+    -webkit-appearance: none;
+    background-color: brown;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+  }
+  /* #############################################################################
+  Explosion checkbox
+  ############################################################################# */
+  .checkboxExplosion[type=checkbox] {
+    -webkit-appearance: none;
+    background-color: red;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+        background:url("./components/broken3.jpg") no-repeat;
+  }
+
+  .checkboxExplosion[type=checkbox]:checked {
+    background-color: red;
+    background:url("https://thehustle.co/wp-content/uploads/2021/11/News-Brief_2021-11-07T232730.720Z.jpg") no-repeat;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+    color: #99a1a7;
+  }
+
+  /* #############################################################################
+  setClickedArray checkbox
+  ############################################################################# */
+  .checkboxClicked[type=checkbox] {
+    -webkit-appearance: none;
+    background-color: rgba(242, 245, 66, 0.6);
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin:0;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .checkboxClicked[type=checkbox]:checked {
+    background-color: rgba(242, 245, 66, 0.6);
+    border: 1px solid #adb8c0;
+        margin:0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+    color: #99a1a7;
+  }
 }
