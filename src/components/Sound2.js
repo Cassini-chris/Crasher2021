@@ -1,5 +1,5 @@
 import useSound from 'use-sound';
-import sound from './glass.mp3';
+import sound from './sound/hammer.mp3';
 
 const BoopButton = () => {
   const [play] = useSound(sound);

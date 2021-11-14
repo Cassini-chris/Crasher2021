@@ -1,9 +1,26 @@
+/*OVERALL STYLING-------------------------------------------------------------*/
+/*OVERALL STYLING-------------------------------------------------------------*/
+/*OVERALL STYLING-------------------------------------------------------------*/
+
+/* html {
+
+
+
+     background-image: url("./components/images/game-background.jpg");
+
+  }; */
+
 body {
     padding-top: 56px;
-    -webkit-background-size: cover;
+    /* -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
+    background-image: url("./components/images/game-background_small3.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+
+
   };
 
 .bg-dark {background-color: #29527b}
@@ -17,188 +34,213 @@ table, td, th {
 
 .container{text-align: center;}
 
-.option_menu{background-color: rgba(255, 0, 0, 0.4);}
+.option_menu{background-color: rgba(255, 0, 0, 0.4); padding: 5px 0 10px 0}
+
+.form-select{width:10%;  margin: 0 auto;}
+
+h1 {text-shadow: 1px 1px 2px black;}
+h3 {text-shadow: 1px 1px 2px black;}
+h4 {text-shadow: 1px 1px 2px black;}
+/* ###########################################################################*/
+/* ###########################################################################*/
+/* # SMALL SCREEN-------------------------------------------------------------*/
+/* ###########################################################################*/
+/* ###########################################################################*/
+
+@media (min-width: 400px) {
+  .col-sm {
+    width:100px; padding: 0;
+    flex: 0 0 0%}
 
 
+  .checkbox-container {
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+  }
 
-/*SMALL----------------------------------------------------------------------*/
-  @media (min-width: 400px) {
-    .col-sm {
-      width:90px; padding: 0;
-      flex: 0 0 0%}
+span {font-size:40px}
+.form-select{padding:10px}
 
+/* ---------------------------------------------------------------------------*/
+/* Normal checkbox------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxUnchecked[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: rgba(40, 40, 40, 0.8);
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 42px;
+  border-radius: 3px;
+  margin:10px;
+  display: inline-block;
+  position: relative;
+}
 
-    .checkbox-container {
-      height: 90px;
-      width: 90px;
-      margin: 5px;
-      text-align: center;
-    }
+/* ---------------------------------------------------------------------------*/
+/* ClickedArray checkbox------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxClicked[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: rgba(242, 245, 66, 0.6);
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin:25px;
+  margin-top:28px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
 
-/*big----------------------------------------------------------------------*/
-    /* #############################################################################
-    Normal checkbox
-    ############################################################################# */
-    .checkboxUnchecked[type=checkbox] {
-      -webkit-appearance: none;
-      background-color: rgba(40, 40, 40, 0.8);
-      border: 1px solid #cacece;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-      padding: 40px;
-      border-radius: 3px;
-      display: inline-block;
-      position: relative;
-    }
+.checkboxClicked[type=checkbox]:checked {
+  background-color: rgba(242, 245, 66, 0.6);
+  border: 1px solid #adb8c0;
+  margin:25px;
+    margin-top:28px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #99a1a7;
+}
 
-    /* #############################################################################
-    setClickedArray checkbox
-    ############################################################################# */
-    .checkboxClicked[type=checkbox] {
-      -webkit-appearance: none;
-      background-color: rgba(242, 245, 66, 0.6);
-      border: 1px solid #cacece;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-      padding: 20px;
-            margin:15px;
-      border-radius: 3px;
-      display: inline-block;
-      position: relative;
-    }
+/* ---------------------------------------------------------------------------*/
+/* Explosion checkbox---------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxExplosion[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: red;
 
-    .checkboxClicked[type=checkbox]:checked {
-      background-color: rgba(242, 245, 66, 0.6);
-      border: 1px solid #adb8c0;
-      margin:15px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-      color: #99a1a7;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 43px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  background:url("./components/images/skull3.png") no-repeat;
+  background-repeat: no-repeat;
+  background-size: 85px;
+}
 
 }
 
+/* ###########################################################################*/
+/* ###########################################################################*/
+/* # BIG SCREEN---------------------------------------------------------------*/
+/* ###########################################################################*/
+/* ###########################################################################*/
+@media (min-width: 1200px) {
+  .col-sm {
+    width:80px; padding: 0;
+    flex: 0 0 0%}
 
-}
-  /*BIG----------------------------------------------------------------------*/
-  @media (min-width: 1200px) {
-    .col-sm {
-      width:45px; padding: 0;
-      flex: 0 0 0%}
-
-
-    .checkbox-container {
-      height: 45px;
-      width: 45px;
-      text-align: center;
-    }
-  /* #############################################################################
-  Normal checkbox
-  ############################################################################# */
+  .checkbox-container {
+    height: 80px;
+    width: 80px;
+    text-align: center;
+  }
+span {font-size:25px}
+/* ---------------------------------------------------------------------------*/
+/* Normal checkbox------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
   .checkboxUnchecked[type=checkbox] {
     -webkit-appearance: none;
     background-color: rgba(40, 40, 40, 0.8);
     border: 1px solid #cacece;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 20px;
+    padding: 36px;
     border-radius: 3px;
     display: inline-block;
     position: relative;
   }
 
+/* ---------------------------------------------------------------------------*/
+/* Disabled checkbox----------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxDisabled[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: black;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
 
+/* ---------------------------------------------------------------------------*/
+/* Won checkbox---------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxWon[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: green;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
 
+/* ---------------------------------------------------------------------------*/
+/* Bomb checkbox--------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxBomb[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: brown;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
 
+/* ---------------------------------------------------------------------------*/
+/* Explosion checkbox---------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxExplosion[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: red;
 
-  /* #############################################################################
-  Clicked checkbox
-  ############################################################################# */
-  /* .checkboxUnchecked[type=checkbox]:checked {
-    background-color: rgba(242, 245, 66, 0.6);
-    border: 1px solid #adb8c0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-    color: #99a1a7;
-  } */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 36px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  background:url("./components/images/skull3.png") no-repeat;
+  background-repeat: no-repeat;
+  background-size: 74px;
+}
 
-  /* #############################################################################
-  Disabled checkbox
-  ############################################################################# */
-  .checkboxDisabled[type=checkbox] {
-    -webkit-appearance: none;
-    background-color: black;
-    border: 1px solid #cacece;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
-  }
+/* .checkboxExplosion[type=checkbox]:checked {
+  background-color: red;
+  border: 1px solid #adb8c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #99a1a7;
+} */
 
-  /* #############################################################################
-  Won checkbox
-  ############################################################################# */
-  .checkboxWon[type=checkbox] {
-    -webkit-appearance: none;
-    background-color: green;
-    border: 1px solid #cacece;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
-  }
+/* ---------------------------------------------------------------------------*/
+/* ClickedArray checkbox------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxClicked[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: rgba(242, 245, 66, 0.6);
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin:0;
+  margin-top:10px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
 
-  /* #############################################################################
-  BOMB checkbox
-  ############################################################################# */
-  .checkboxBomb[type=checkbox] {
-    -webkit-appearance: none;
-    background-color: brown;
-    border: 1px solid #cacece;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
-  }
-  /* #############################################################################
-  Explosion checkbox
-  ############################################################################# */
-  .checkboxExplosion[type=checkbox] {
-    -webkit-appearance: none;
-    background-color: red;
-    border: 1px solid #cacece;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
-        background:url("./components/broken3.jpg") no-repeat;
-  }
+.checkboxClicked[type=checkbox]:checked {
+  background-color: rgba(242, 245, 66, 0.6);
+  border: 1px solid #adb8c0;
+  margin:0;
+  margin-top:15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #99a1a7;
+}
 
-  .checkboxExplosion[type=checkbox]:checked {
-    background-color: red;
-    border: 1px solid #adb8c0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-    color: #99a1a7;
-  }
-
-  /* #############################################################################
-  setClickedArray checkbox
-  ############################################################################# */
-  .checkboxClicked[type=checkbox] {
-    -webkit-appearance: none;
-    background-color: rgba(242, 245, 66, 0.6);
-    border: 1px solid #cacece;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    margin:0;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
-  }
-
-  .checkboxClicked[type=checkbox]:checked {
-    background-color: rgba(242, 245, 66, 0.6);
-    border: 1px solid #adb8c0;
-        margin:0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-    color: #99a1a7;
-  }
 }

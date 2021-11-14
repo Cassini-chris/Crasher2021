@@ -9,10 +9,11 @@ const Blocks_Menu = (props) => {
     return (
 
       <div className="option_menu">
-            <label htmlFor="Blocks">Number of Blocks:</label>
-            <select name="blocks" onChange={props.handleBlocks}>
+        <span>Number of Blocks</span>
+            <select className="form-select" onChange={props.handleBlocks}>
               <option value="10">10</option>
               <option value="20">20</option>
+              <option value="25">25</option>
               <option value="50">50</option>
               <option value="100">100</option>
             </select>

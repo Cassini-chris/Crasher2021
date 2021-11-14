@@ -1,13 +1,13 @@
 import useSound from 'use-sound';
-import sound from './glass.mp3';
-import broken from './broken.png';
+import sound from './sound/hammer.mp3';
+import no from './sound/no.mp3';
 function Field_2 (props) {
 
 //##############################################################################
 // Sound
 //##############################################################################
 const [play] = useSound(sound);
-
+const [play2] = useSound(no);
 //##############################################################################
 // Classname
 //##############################################################################
@@ -29,8 +29,8 @@ function clickHandler () {
   props.setClickedArray([...props.clickedArray, props.id]);
   console.log(props.id);
   console.log(props.clickedArray);
-  play();
-  if (props.bombs.includes(props.id)) { console.log("TREFFER")} else  { console.log("NI")} ;
+
+  if (props.bombs.includes(props.id)) {  play2(); console.log("TREFFER")} else  {  play(); console.log("NI")} ;
 
 }
 
