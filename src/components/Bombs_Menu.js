@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Blocks_Menu = (props) => {
+const Bombs_Menu = (props) => {
 
   // function handleBlocks(event){
   //   props.setBlocks(event.target.value)
@@ -9,15 +9,15 @@ const Blocks_Menu = (props) => {
     return (
 
       <div className="option_menu">
-            <label htmlFor="Blocks">Number of Blocks:</label>
-            <select name="blocks" onChange={props.handleBlocks}>
+            <label htmlFor="Bombs">Number of Bombs:</label>
+            <select name="bombs" onChange={props.handleBombs}>
+              <option value="5">5</option>
               <option value="10">10</option>
+              <option value="15">15</option>
               <option value="20">20</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
             </select>
       </div>
     )
 }
 
-export default Blocks_Menu;
+export default Bombs_Menu;

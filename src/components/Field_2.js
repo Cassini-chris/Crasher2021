@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import useSound from 'use-sound';
 import sound from './glass.mp3';
 import broken from './broken.png';
@@ -46,7 +45,8 @@ function clickHandler () {
               className={variable_classname()}
               type="checkbox"
               name="checkbox"
-              value="">
+              value=""
+              key={props.id}>
       </input>
      </label>
     </div>
