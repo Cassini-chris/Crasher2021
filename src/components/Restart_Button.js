@@ -10,7 +10,7 @@ props.setBombsArray([Math.floor(Math.random() * 10+1)]);
 
     return (
 
-      <div className="option_menu">
+      <div className="option_menu restart">
         <button type="button" onClick={clickHanderRestart}  className="btn btn-dark">Restart</button>
       </div>
     )

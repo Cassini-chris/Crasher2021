@@ -1,27 +1,20 @@
+/* ###########################################################################*/
+/* ###########################################################################*/
 /*OVERALL STYLING-------------------------------------------------------------*/
-/*OVERALL STYLING-------------------------------------------------------------*/
-/*OVERALL STYLING-------------------------------------------------------------*/
+/* ###########################################################################*/
+/* ###########################################################################*/
 
-/* html {
-
-
-
-     background-image: url("./components/images/game-background.jpg");
-
-  }; */
 
 body {
     padding-top: 56px;
-    /* -webkit-background-size: cover;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover; */
+    background-size: cover;
     background-image: url("./components/images/game-background_small3.jpg");
     background-repeat: no-repeat;
     background-size: auto;
-
-
-  };
+}
 
 .bg-dark {background-color: #29527b}
 
@@ -33,35 +26,42 @@ table, td, th {
 }
 
 .container{text-align: center;}
-
-.option_menu{background-color: rgba(255, 0, 0, 0.4); padding: 5px 0 10px 0}
-
-.form-select{width:10%;  margin: 0 auto;}
+/*
+.option_menu{margin-top: 10px} */
 
 h1 {text-shadow: 1px 1px 2px black;}
 h3 {text-shadow: 1px 1px 2px black;}
 h4 {text-shadow: 1px 1px 2px black;}
+
+
 /* ###########################################################################*/
 /* ###########################################################################*/
-/* # SMALL SCREEN-------------------------------------------------------------*/
+/* # PHONE: SMALL SCREEN-------------------------------------------------------*/
 /* ###########################################################################*/
 /* ###########################################################################*/
 
-@media (min-width: 400px) {
+@media (max-width: 499px) {
   .col-sm {
-    width:100px; padding: 0;
+    width:100px; padding: 0; margin: 0px;
     flex: 0 0 0%}
 
-
   .checkbox-container {
-    height: 100px;
-    width: 100px;
-    margin: 10px;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
     text-align: center;
   }
 
-span {font-size:40px}
-.form-select{padding:10px}
+.heading_top{font-size:50px; margin-bottom: 50px}
+
+.row {margin-left:5px; margin-right:5px}
+
+/* .form-select{margin-bottom: 15px} */
+
+.form-select{width:50%;  margin: 0 auto; margin-bottom: 15px}
+
+span {font-size:30px}
+
 
 /* ---------------------------------------------------------------------------*/
 /* Normal checkbox------------------------------------------------------------*/
@@ -71,9 +71,9 @@ span {font-size:40px}
   background-color: rgba(40, 40, 40, 0.8);
   border: 1px solid #cacece;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-  padding: 42px;
+  padding: 20px;
   border-radius: 3px;
-  margin:10px;
+  margin:5px;
   display: inline-block;
   position: relative;
 }
@@ -86,9 +86,9 @@ span {font-size:40px}
   background-color: rgba(242, 245, 66, 0.6);
   border: 1px solid #cacece;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  margin:25px;
-  margin-top:28px;
+  padding: 18px;
+  margin:5px;
+  margin-top:1px;
   border-radius: 3px;
   display: inline-block;
   position: relative;
@@ -97,8 +97,8 @@ span {font-size:40px}
 .checkboxClicked[type=checkbox]:checked {
   background-color: rgba(242, 245, 66, 0.6);
   border: 1px solid #adb8c0;
-  margin:25px;
-    margin-top:28px;
+  margin:5px;
+  margin-top:6px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
   color: #99a1a7;
 }
@@ -109,15 +109,53 @@ span {font-size:40px}
 .checkboxExplosion[type=checkbox] {
   -webkit-appearance: none;
   background-color: red;
-
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-  padding: 43px;
+  padding: 24px;
   border-radius: 3px;
   display: inline-block;
   position: relative;
+    margin:0px;
   background:url("./components/images/skull3.png") no-repeat;
   background-repeat: no-repeat;
-  background-size: 85px;
+  background-size: 45px;
+}
+
+/* ---------------------------------------------------------------------------*/
+/* Shot checkbox---------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxShot[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: red;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 25px 25px 28px 24px;
+
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+
+  margin-left: 5px;
+  text-align: center;
+  background:url("./components/images/shot3.png") no-repeat;
+  background-repeat: no-repeat;
+  background-size: 40px;
+}
+
+/* ---------------------------------------------------------------------------*/
+/* Won checkbox---------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxWon[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: red;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 25px 25px 28px 24px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  margin-top: 4px;
+  text-align: center;
+  background:url("./components/images/diamond3.png") no-repeat;
+  background-repeat: no-repeat;
+  background-size: 50px;
 }
 
 }
@@ -127,7 +165,7 @@ span {font-size:40px}
 /* # BIG SCREEN---------------------------------------------------------------*/
 /* ###########################################################################*/
 /* ###########################################################################*/
-@media (min-width: 1200px) {
+@media (min-width: 500px) {
   .col-sm {
     width:80px; padding: 0;
     flex: 0 0 0%}
@@ -138,6 +176,17 @@ span {font-size:40px}
     text-align: center;
   }
 span {font-size:25px}
+
+.option_menu{background-color: rgba(255, 0, 0, 0.4); padding: 5px 0 10px 0}
+
+.form-select{width:10%;  margin: 0 auto;}
+
+.heading_top{font-size:100px; margin-bottom: 50px}
+
+.row{margin-left:50px; margin-right:50px}
+
+.restart{margin-bottom: 10px}
+
 /* ---------------------------------------------------------------------------*/
 /* Normal checkbox------------------------------------------------------------*/
 /* ---------------------------------------------------------------------------*/
@@ -171,13 +220,16 @@ span {font-size:25px}
 /* ---------------------------------------------------------------------------*/
 .checkboxWon[type=checkbox] {
   -webkit-appearance: none;
-  background-color: green;
-  border: 1px solid #cacece;
+  background-color: red;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
-  padding: 20px;
+  padding: 36px;
   border-radius: 3px;
   display: inline-block;
   position: relative;
+  margin-top: 15px;
+  background:url("./components/images/diamond3.png") no-repeat;
+  background-repeat: no-repeat;
+  background-size: 74px;
 }
 
 /* ---------------------------------------------------------------------------*/
@@ -209,6 +261,22 @@ span {font-size:25px}
   background:url("./components/images/skull3.png") no-repeat;
   background-repeat: no-repeat;
   background-size: 74px;
+}
+
+/* ---------------------------------------------------------------------------*/
+/* Shot checkbox---------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+.checkboxShot[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: red;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 35px 35px 38px 20px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  background:url("./components/images/shot3.png") no-repeat;
+  background-repeat: no-repeat;
+  background-size: 54px;
 }
 
 /* .checkboxExplosion[type=checkbox]:checked {
