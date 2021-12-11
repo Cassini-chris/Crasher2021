@@ -26,8 +26,8 @@ table, td, th {
 }
 
 .container{text-align: center;}
-/*
-.option_menu{margin-top: 10px} */
+
+.option_menu{ margin-bottom: 10px}
 
 h1 {text-shadow: 1px 1px 2px black;}
 h3 {text-shadow: 1px 1px 2px black;}

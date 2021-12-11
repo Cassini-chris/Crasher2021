@@ -11,6 +11,8 @@ const Bombs_Menu = (props) => {
       <div className="option_menu">
             <span>Number of Bombs</span>
             <select className="form-select" onChange={props.handleBombs}>
+              <option value="0">---</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

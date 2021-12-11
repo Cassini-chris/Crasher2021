@@ -1,0 +1,112 @@
+import {onSnapshot, doc, collection, addDoc, setDoc} from "firebase/firestore";
+import db from "./../firebase"
+
+
+
+function resetGameFunction() {
+
+//Setting bombs array in FIRESTORE
+setDoc(doc(db, 'game_state', 'block_10001'), {id: 10001, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10002'), {id: 10002, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10003'), {id: 10003, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10004'), {id: 10004, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10005'), {id: 10005, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10006'), {id: 10006, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10007'), {id: 10007, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10008'), {id: 10008, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10009'), {id: 10009, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10010'), {id: 10010, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10011'), {id: 10011, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10012'), {id: 10012, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10013'), {id: 10013, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10014'), {id: 10014, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10015'), {id: 10015, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10016'), {id: 10016, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10017'), {id: 10017, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10018'), {id: 10018, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10019'), {id: 10019, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10020'), {id: 10020, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10021'), {id: 10021, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10022'), {id: 10022, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10023'), {id: 10023, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10024'), {id: 10024, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10025'), {id: 10025, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10026'), {id: 10026, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10027'), {id: 10027, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10028'), {id: 10028, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10029'), {id: 10029, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10030'), {id: 10030, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10031'), {id: 10031, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10032'), {id: 10032, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10033'), {id: 10033, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10034'), {id: 10034, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10035'), {id: 10035, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10036'), {id: 10036, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10037'), {id: 10037, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10038'), {id: 10038, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10039'), {id: 10039, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10040'), {id: 10040, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10041'), {id: 10041, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10042'), {id: 10042, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10043'), {id: 10043, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10044'), {id: 10044, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10045'), {id: 10045, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10046'), {id: 10046, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10047'), {id: 10047, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10048'), {id: 10048, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10049'), {id: 10049, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10050'), {id: 10050, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10051'), {id: 10051, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10052'), {id: 10052, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10053'), {id: 10053, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10054'), {id: 10054, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10055'), {id: 10055, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10056'), {id: 10056, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10057'), {id: 10057, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10058'), {id: 10058, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10059'), {id: 10059, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10060'), {id: 10060, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10061'), {id: 10061, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10062'), {id: 10062, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10063'), {id: 10063, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10064'), {id: 10064, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10065'), {id: 10065, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10066'), {id: 10066, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10067'), {id: 10067, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10068'), {id: 10068, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10069'), {id: 10069, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10070'), {id: 10070, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10071'), {id: 10071, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10072'), {id: 10072, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10073'), {id: 10073, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10074'), {id: 10074, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10075'), {id: 10075, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10076'), {id: 10076, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10077'), {id: 10077, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10078'), {id: 10078, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10079'), {id: 10079, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10080'), {id: 10080, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10081'), {id: 10081, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10082'), {id: 10082, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10083'), {id: 10083, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10084'), {id: 10084, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10085'), {id: 10085, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10086'), {id: 10086, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10087'), {id: 10087, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10088'), {id: 10088, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10089'), {id: 10089, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10090'), {id: 10090, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10091'), {id: 10091, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10092'), {id: 10092, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10093'), {id: 10093, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10094'), {id: 10094, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10095'), {id: 10095, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10096'), {id: 10096, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10097'), {id: 10097, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10098'), {id: 10098, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10099'), {id: 10099, state: 'unchecked'});
+setDoc(doc(db, 'game_state', 'block_10100'), {id: 10100, state: 'unchecked'});
+ console.log("reset")
+}
+
+export default resetGameFunction;

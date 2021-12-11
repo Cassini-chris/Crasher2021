@@ -8,7 +8,33 @@ import Shots_Menu from './components/Shots_Menu';
 import Begin_Button from './components/Begin_Button';
 import Start_Button from './components/Start_Button';
 import Restart_Button from './components/Restart_Button';
+import Reset_Button from './components/Reset_Button';
+import Join_Button from './components/Join_Button';
+
+import resetGameFunction from "./components/Reset_Function"
+import db from "./firebase"
+
+
+import {onSnapshot, doc, collection, addDoc, setDoc} from "firebase/firestore";
+
 function App() {
+
+
+
+//##############################################################################
+// Getting Firestore Data
+//##############################################################################
+useEffect(() =>
+onSnapshot(collection(db, "game_state"), (snapshot) => {
+    setGame_State(snapshot.docs.map(doc=> doc.data()));
+
+   }
+  ),
+ [],
+);
+
+
+
 
 
 //##############################################################################
@@ -19,16 +45,43 @@ function idProp() {id = id+1; return (id)};
 
 //##############################################################################
 //Set Blocks | Bombs
-//##############################################################################
+//#############################################################################
+const [game_state, setGame_State] = useState([]);
+let live_game_state_array = [];
+let live_game_state_array_ids = [];
+let live_game_state_array_bombs = [];
+let live_game_state_array_shots = [];
+let live_game_state_array_block_x = [];
+//console.log(game_state);
+//console.log("GAMESTATE: "+game_state.map(block=> (live_game_state_array.push(block.state))));
+game_state.map(block=> (live_game_state_array.push(block.state)));
+game_state.map(block=> (live_game_state_array_ids.push(block.id)));
+game_state.map(block=> (live_game_state_array_bombs.push(block.bombs)));
+game_state.map(block=> (live_game_state_array_shots.push(block.shots)));
+game_state.map(block=> (live_game_state_array_block_x.push(block.blocks)));
+console.log("Bombs in database: "+live_game_state_array_bombs[101]);
+console.log("Shots in database: "+live_game_state_array_shots[102]);
+console.log("Blocks in database: "+live_game_state_array_block_x[100]);
+console.log("==================================================================");
+
 let default_blocks = 10;
 let default_bombs = [Math.floor(Math.random() * 10+1)];
 let default_shots =  [Math.floor(Math.random() * 10+1)];
 
+let default_blocks_db = live_game_state_array_block_x[100];
+let default_bombs_db = live_game_state_array_bombs[101];
+let default_shots_db = live_game_state_array_shots[102];
 
-const [blocks, setBlocks] = useState(default_blocks);
-const [bombs, setBombsArray] = useState(default_bombs);
-const [shots, setShotsArray] = useState(default_shots);
+console.log(default_blocks_db);
+console.log(default_bombs_db);
+console.log(default_shots_db);
+
+const [blocks, setBlocks] = useState();
+const [bombs, setBombsArray] = useState();
+const [shots, setShotsArray] = useState();
 const [start, setStart] = useState(0);
+
+
 
 //##############################################################################
 //Create Bombs
@@ -53,7 +106,8 @@ while(arr.length < bombs_x){
   while(arr.length < bombs_x){
       var r = Math.floor(Math.random() * blocks_x) + 1;
       if(arr.indexOf(r) === -1) arr.push(r);
-   } return arr}
+   }
+   return arr}
 };
 
 //##############################################################################
@@ -90,6 +144,7 @@ while(shot_arr.length < shots_x){
 function handleBlocks(event){
 setBlocks(event.target.value);
 console.log("Blocks Menu Activated with: " + event.target.value);
+startGame();
 //setBombsArray(createBombsArray(event.target.value));
 }
 
@@ -97,12 +152,14 @@ function handleBombs(event2){
 console.log("Bombs Menu Activated with: " + event2.target.value);
 console.log("blocks with: "+blocks);
 setBombsArray(createBombsArray(event2.target.value, blocks));
+startGame();
 }
 
 function handleShots(event3){
 console.log("Shots Menu Activated with: " + event3.target.value);
 console.log("blocks with: "+blocks);
 setShotsArray(createShotsArray(event3.target.value, blocks));
+startGame();
 }
 
 //##############################################################################
@@ -116,7 +173,39 @@ const [clickedArray, setClickedArray] = useState([]);
 function startGame() {
 setStart(start + 1 );
 console.log(start);
-  }
+
+//Setting bombs array in FIRESTORE
+if (start===4){
+  resetGame();
+  setDoc(doc(db, "game_state", "bombs"), {bombs: bombs});
+  setDoc(doc(db, "game_state", "shots"), {shots: shots});
+  setDoc(doc(db, "game_state", "block_x"), {blocks: blocks});
+  };
+
+
+}
+
+
+
+//##############################################################################
+//Join game
+//##############################################################################
+function joinGame() {
+setStart(start + 5 );
+console.log("join");
+
+//Setting bombs array in FIRESTORE
+setBlocks(default_blocks_db);
+setBombsArray(default_bombs_db);
+setShotsArray(default_shots_db);
+
+}
+
+//##############################################################################
+//Reset game
+//##############################################################################
+function resetGame(){
+resetGameFunction()};
 
 
 //##############################################################################
@@ -132,29 +221,37 @@ for (let step = 0; step < blocks; step++) {
     bombs={bombs}
     shots={shots}
     key={id}
+    live_game_state_array={live_game_state_array}
+    live_game_state_array_ids={live_game_state_array_ids}
 
     />);
 };
+
+
+
 
 //##############################################################################
 //Testing
 //##############################################################################
 console.log("Bomb(s) in GAME: " + bombs);
-console.log("Blocks in GAME: " + blocks);
 console.log("Shot(s) in GAME: " + shots);
-
+console.log("Blocks in GAME: " + blocks);
 return (
 
   <div style={{textAlign:'center', color:'white'}} id="all_JSX_________________________________________________________">
     <h1 className="heading_top">Crasher Game</h1>
 
 {start===0 && <Start_Button startGame={startGame} />}
-{start===1 && <Blocks_Menu setBlocks={setBlocks} blocks={blocks} handleBlocks={handleBlocks} />}
-{start===1 && <Bombs_Menu  setBombsArray={setBombsArray} bombs={bombs}  blocks={blocks} handleBombs={handleBombs} />}
-{start===1 && <Shots_Menu  setBombsArray={setBombsArray} bombs={bombs}  blocks={blocks} handleBombs={handleBombs}  handleShots={handleShots} setShotsArray={setShotsArray} shots={shots}/>}
-{start===1 && <Begin_Button startGame={startGame} />}
-{start===2 && <Restart_Button setStart={setStart} setClickedArray={setClickedArray} setBombsArray={setBombsArray} />}
-{start===2 &&
+{start===0 && <Join_Button setShotsArray={setShotsArray}  setBombsArray={setBombsArray} joinGame={joinGame}/>}
+{start===0 && <Reset_Button resetGame={resetGame}  setShotsArray={setShotsArray}  setBombsArray={setBombsArray} />}
+
+
+{start===1 && <Blocks_Menu setBlocks={setBlocks} blocks={blocks} handleBlocks={handleBlocks} startGame={startGame}  />}
+{start===2 && <Bombs_Menu  setBombsArray={setBombsArray} bombs={bombs}  blocks={blocks} handleBombs={handleBombs} startGame={startGame} />}
+{start===3 && <Shots_Menu  setBombsArray={setBombsArray} blocks={blocks} handleShots={handleShots} setShotsArray={setShotsArray} shots={shots} startGame={startGame}/>}
+{start===4 && <Begin_Button startGame={startGame}  resetGame={resetGame} />}
+{start===5 && <Restart_Button setStart={setStart} setClickedArray={setClickedArray} setBombsArray={setBombsArray} />}
+{start===5 &&
 
 
 

@@ -2,9 +2,9 @@ const Restart_Button = (props) => {
 
 function clickHanderRestart()
 {
-props.setStart(1);
+props.setStart(0);
 props.setClickedArray([]);
-props.setBombsArray([Math.floor(Math.random() * 10+1)]);
+
 }
 
 
