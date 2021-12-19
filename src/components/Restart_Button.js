@@ -12,6 +12,7 @@ props.setClickedArray([]);
 
       <div className="option_menu restart">
         <button type="button" onClick={clickHanderRestart}  className="btn btn-dark">Restart</button>
+
       </div>
     )
 }

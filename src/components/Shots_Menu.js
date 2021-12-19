@@ -9,7 +9,7 @@ const Shots_Menu = (props) => {
     return (
 
       <div className="option_menu">
-            <span>Number of Shots</span>
+            <span>Shots</span>
             <select className="form-select" onChange={props.handleShots}>
               <option value="0">---</option>
               <option value="0">0</option>
@@ -25,6 +25,9 @@ const Shots_Menu = (props) => {
               <option value="10">10</option>
 
             </select>
+            <p className="summary_text" style={{marginTop: "5px"}}>Blocks: {props.blocks}</p>
+            <p className="summary_text">Bombs: {props.bombs.length}</p>
+
       </div>
     )
 }

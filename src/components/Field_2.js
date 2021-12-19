@@ -87,6 +87,9 @@ setDoc(doc(db, "game_state", current_document), {
   if (props.shots.includes(props.id)) {  play3(); console.log("TREFFER SHOT")}
   else
   { play(); console.log("Kein Bombe")}}};
+
+setDoc(doc(db, "game_state", "zzz_playername"), {playername: props.playername});
+
 }
 
 //Return JSX

@@ -11,7 +11,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image: url("./components/images/game-background_small3.jpg");
+    background-image: url("./components/images/game-background_small2.jpg");
     background-repeat: no-repeat;
     background-size: auto;
 }
@@ -33,6 +33,9 @@ h1 {text-shadow: 1px 1px 2px black;}
 h3 {text-shadow: 1px 1px 2px black;}
 h4 {text-shadow: 1px 1px 2px black;}
 
+.game_id {text-shadow: 1px 1px 2px black;}
+
+.summary_text {text-shadow: 1px 1px 2px black; margin:0}
 
 /* ###########################################################################*/
 /* ###########################################################################*/
@@ -115,7 +118,7 @@ span {font-size:30px}
   display: inline-block;
   position: relative;
     margin:0px;
-  background:url("./components/images/skull3.png") no-repeat;
+  background:url("./components/images/bomb5.png") no-repeat;
   background-repeat: no-repeat;
   background-size: 45px;
 }
@@ -258,7 +261,7 @@ span {font-size:25px}
   border-radius: 3px;
   display: inline-block;
   position: relative;
-  background:url("./components/images/skull3.png") no-repeat;
+  background:url("./components/images/bomb5.png") no-repeat;
   background-repeat: no-repeat;
   background-size: 74px;
 }

@@ -9,7 +9,7 @@ const Blocks_Menu = (props) => {
     return (
 
       <div className="option_menu">
-        <span>Number of Blocks</span>
+        <span>Blocks</span>
             <select className="form-select" onChange={props.handleBlocks}>
               <option value="10">--</option>
               <option value="10">10</option>
