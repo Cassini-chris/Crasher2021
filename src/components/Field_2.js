@@ -3,6 +3,7 @@ import sound from './sound/hammer.mp3';
 import no from './sound/no.mp3';
 import drink from './sound/drink.mp3';
 import diamond from './sound/diamond.mp3';
+import complete_sound from './sound/complete.mp3';
 import {onSnapshot, doc, collection, addDoc, setDoc} from "firebase/firestore";
 import db from "./../firebase"
 
@@ -15,6 +16,7 @@ const [play] = useSound(sound);
 const [play2] = useSound(no);
 const [play3] = useSound(drink);
 const [play4] = useSound(diamond);
+const [sound_complete_sound] = useSound(complete_sound);
 //##############################################################################
 // Game_state
 //##############################################################################
@@ -36,6 +38,7 @@ function variable_classname (){
   if (props.bombs.includes(props.live_game_state_array_ids[props.id -1])){class_var="checkboxExplosion"}
   if (props.shots.includes(props.live_game_state_array_ids[props.id -1])){class_var="checkboxShot"}
   if (props.bombs.includes(props.live_game_state_array_ids[props.id -1]) && props.shots.includes(props.live_game_state_array_ids[props.id -1])) {class_var="checkboxWon"}
+  if (props.clickedArray.length==props.blocks){setTimeout(() => { sound_complete_sound(); }, 750);  props.clickedArray.length=0}
 
 //  console.log("State:"+props.id +" "+ props.live_game_state_array_ids[props.id -1])
 //
@@ -78,6 +81,7 @@ setDoc(doc(db, "game_state", current_document), {
   props.setClickedArray([...props.clickedArray, props.id]);
   console.log(props.id);
   console.log(props.clickedArray);
+
 
   if (props.shots.includes(props.id) && props.bombs.includes(props.id)) {play4(); console.log("DIAMOND")}
   else  {

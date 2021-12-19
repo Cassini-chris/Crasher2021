@@ -18,6 +18,10 @@ import Back_Button from './components/Back_Button';
 
 import useSound from 'use-sound';
 import start_game_sound from './components/sound/start_game.mp3';
+import power_up_sound from './components/sound/power_up.mp3'
+import back_sound from './components/sound/back.mp3'
+import refresh_sound from './components/sound/refresh.mp3'
+
 
 import resetGameFunction from "./components/Reset_Function"
 import db from "./firebase"
@@ -103,7 +107,9 @@ const [start, setStart] = useState(0);
 const [playername, setPlayerName] = useState("");
 
 const [play_start_game] = useSound(start_game_sound);
-
+const [sound_power_up_sound] = useSound(power_up_sound);
+const [sound_back_sound] = useSound(back_sound);
+const [sound_refresh_sound] = useSound(refresh_sound);
 
 //##############################################################################
 //Create Bombs
@@ -191,6 +197,7 @@ setPlayerName(event4.target.value);
 
 function handleBack(){
 setStart(start - 1 );
+sound_back_sound();
 }
 //##############################################################################
 //Clicked Array
@@ -203,6 +210,8 @@ const [clickedArray, setClickedArray] = useState([]);
 function startGame() {
 setStart(start + 1 );
 console.log(start);
+
+if (start!==4){sound_power_up_sound();}
 
 //Setting bombs array in FIRESTORE
 if (start===4){
@@ -299,6 +308,7 @@ setBlocks(default_blocks_db);
 setBombsArray(default_bombs_db);
 setShotsArray(default_shots_db);
 setGameIDArray(default_game_id_db);
+sound_refresh_sound();
 }
 
 
@@ -307,6 +317,7 @@ setGameIDArray(default_game_id_db);
 //##############################################################################
 function resetGame(){
 resetGameFunction()};
+
 
 
 //##############################################################################
