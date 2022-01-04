@@ -15,12 +15,14 @@ import Join_Button from './components/Join_Button';
 import Refresh_Button from './components/Refresh_Button';
 import Player_Name from './components/Player_Name';
 import Back_Button from './components/Back_Button';
+import PlayAlone from './components/PlayAlone_Checkbox';
 
 import useSound from 'use-sound';
 import start_game_sound from './components/sound/start_game.mp3';
 import power_up_sound from './components/sound/power_up.mp3'
 import back_sound from './components/sound/back.mp3'
 import refresh_sound from './components/sound/refresh.mp3'
+import turn_sound from './components/sound/turn.mp3';
 
 
 import resetGameFunction from "./components/Reset_Function"
@@ -67,6 +69,8 @@ let live_game_state_array_shots = [];
 let live_game_state_array_block_x = [];
 let live_game_state_array_game_id = [];
 let live_game_state_array_playername = [];
+let live_game_state_array_game_clicks = [];
+let live_game_state_array_ever_clicks = [];
 //console.log(game_state);
 //console.log("GAMESTATE: "+game_state.map(block=> (live_game_state_array.push(block.state))));
 game_state.map(block=> (live_game_state_array.push(block.state)));
@@ -76,12 +80,17 @@ game_state.map(block=> (live_game_state_array_shots.push(block.shots)));
 game_state.map(block=> (live_game_state_array_block_x.push(block.blocks)));
 game_state.map(block=> (live_game_state_array_game_id.push(block.id)));
 game_state.map(block=> (live_game_state_array_playername.push(block.playername)));
+game_state.map(block=> (live_game_state_array_game_clicks.push(block.clicks)));
+game_state.map(block=> (live_game_state_array_ever_clicks.push(block.ever_clicks)));
 console.log("Bombs in database: "+live_game_state_array_bombs[101]);
 console.log("Shots in database: "+live_game_state_array_shots[102]);
 console.log("Blocks in database: "+live_game_state_array_block_x[100]);
 console.log("Game ID: "+live_game_state_array_game_id[103]);
 console.log("Last Clicker: "+live_game_state_array_playername[104]);
+console.log("Game Clicks: "+live_game_state_array_game_clicks[105]);
+console.log("Ever Clicks: "+live_game_state_array_ever_clicks[105]);
 console.log("==================================================================");
+
 
 let default_blocks = 10;
 let default_bombs = [Math.floor(Math.random() * 10+1)];
@@ -92,6 +101,8 @@ let default_bombs_db = live_game_state_array_bombs[101];
 let default_shots_db = live_game_state_array_shots[102];
 let default_game_id_db = live_game_state_array_game_id[103];
 let default_playername_db = live_game_state_array_playername[104];
+let default_game_clicks_db = live_game_state_array_game_clicks[105];
+let default_ever_clicks_db = live_game_state_array_ever_clicks[105];
 
 console.log(default_blocks_db);
 console.log(default_bombs_db);
@@ -104,12 +115,25 @@ const [bombs, setBombsArray] = useState();
 const [shots, setShotsArray] = useState();
 const [game_id, setGameIDArray] = useState();
 const [start, setStart] = useState(0);
-const [playername, setPlayerName] = useState("");
+const [playername, setPlayerName] = useState("Player");
+const [playAlone, setPlayAlone] = useState(true);
+
 
 const [play_start_game] = useSound(start_game_sound);
 const [sound_power_up_sound] = useSound(power_up_sound);
 const [sound_back_sound] = useSound(back_sound);
 const [sound_refresh_sound] = useSound(refresh_sound);
+const [sound_turn_sound] = useSound(turn_sound);
+
+    //
+    // useEffect(()=>{
+    //   if (playername !=default_playername_db) {
+    //     console.log(default_playername_db);
+    //     console.log(default_playername_db);
+    //     console.log(default_playername_db);
+    //   sound_turn_sound();}
+    // }, [])
+
 
 //##############################################################################
 //Create Bombs
@@ -199,6 +223,14 @@ function handleBack(){
 setStart(start - 1 );
 sound_back_sound();
 }
+
+function handlePlayAlone(){
+console.log("PlayAlone Status: " + playAlone);
+if (playAlone==true) {setPlayAlone(false)} else {setPlayAlone(true)};
+console.log("PlayAlone Status: " + playAlone);
+sound_back_sound();
+}
+
 //##############################################################################
 //Clicked Array
 //##############################################################################
@@ -316,7 +348,7 @@ sound_refresh_sound();
 //Reset game
 //##############################################################################
 function resetGame(){
-resetGameFunction()};
+resetGameFunction(default_ever_clicks_db)};
 
 
 
@@ -338,6 +370,13 @@ for (let step = 0; step < blocks; step++) {
     setShotsArray={setShotsArray}
     setBlocks={setBlocks}
 
+    playAlone={playAlone}
+    default_game_clicks_db={default_game_clicks_db}
+
+    game_clicks={default_game_clicks_db}
+    ever_clicks={default_ever_clicks_db}
+    default_playername_db={default_playername_db}
+
     key={id}
     live_game_state_array={live_game_state_array}
     live_game_state_array_ids={live_game_state_array_ids}
@@ -355,13 +394,18 @@ for (let step = 0; step < blocks; step++) {
 console.log("Bomb(s) in GAME: " + bombs);
 console.log("Shot(s) in GAME: " + shots);
 console.log("Blocks in GAME: " + blocks);
+
+
+
 return (
 
   <div style={{textAlign:'center', color:'white'}} id="all_JSX_________________________________________________________">
     <h1 className="heading_top">Crasher Game</h1>
 
-{start===0 && <Player_Name  playername={playername}  setPlayerName={setPlayerName} handleName={handleName}  />}
+{start===0 && <Player_Name  playername={playername}  setPlayerName={setPlayerName} handleName={handleName} handlePlayAlone={handlePlayAlone} playAlone={playAlone}  />}
+
 {start===0 && <Start_Button startGame={startGame} />}
+
 {start===0 && <Join_Button setShotsArray={setShotsArray}  setBombsArray={setBombsArray} joinGame={joinGame}/>}
 {start===0 && <Reset_Button resetGame={resetGame}  setShotsArray={setShotsArray}  setBombsArray={setBombsArray} />}
 
@@ -392,7 +436,8 @@ return (
        {field_array}
 
        <h5>-----</h5>
-       <h4>Your Clicks: {clickedArray.length}</h4>
+       <h4>Total Game Clicks: {default_game_clicks_db}</h4>
+       <h5>Total Ever Clicks: {default_ever_clicks_db}</h5>
        <h4>Last Turn: {default_playername_db}</h4>
 
       </div>

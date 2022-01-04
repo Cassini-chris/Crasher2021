@@ -3,8 +3,8 @@ import db from "./../firebase"
 
 
 
-function resetGameFunction() {
-
+function resetGameFunction(default_ever_clicks_db) {
+setDoc(doc(db, "game_state", "zzzz_game_clicks"), {clicks: 0, ever_clicks: default_ever_clicks_db});
 //Setting bombs array in FIRESTORE
 setDoc(doc(db, 'game_state', 'block_10001'), {id: 10001, state: 'unchecked'});
 setDoc(doc(db, 'game_state', 'block_10002'), {id: 10002, state: 'unchecked'});
